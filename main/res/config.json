@@ -1,0 +1,42 @@
+{
+  "task":{
+    "name":"weather"
+    ,"type":"simple"
+    ,"desc":"获取天气信息"
+    ,"thread":"1"
+    ,"interval":"30"
+    ,"url":"http://www.weather.com.cn/data/cityinfo/101020100.html"
+  }
+  ,"net":{
+    "proxy":{
+      "type":"file","content":{"path":""}
+    }
+    ,"userAgent":""
+  }
+  ,"parser":{}
+  ,"serialize":{
+    "type":"db"
+    ,"db":{
+      "server":"dev.vincent78.com"
+      ,"port":"27017"
+      ,"name":"crawler"
+      ,"user":"crawler"
+      ,"pwd":"crawler"
+      ,"collections":"weather"
+    }
+    ,"file":"content\\weather.json"
+  }
+  ,"log":{
+    "type":"db"
+    ,"db":{
+      "server":"dev.vincent78.com"
+      ,"port":"27017"
+      ,"name":"logTrace"
+      ,"user":"logtrace"
+      ,"pwd":"logtrace"
+      ,"collections":"weather"
+      }
+    ,"file":"content\\weather.json"
+
+  }
+}
