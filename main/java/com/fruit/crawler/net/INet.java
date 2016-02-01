@@ -1,6 +1,8 @@
 package com.fruit.crawler.net;
 
-import sun.net.www.http.HttpClient;
+
+
+import org.apache.http.client.HttpClient;
 
 import java.net.URL;
 /**
@@ -16,20 +18,6 @@ public interface INet
      * @return
      */
     public String getHtmlStr(URL url, NetConnectType type);
-
-    /**
-     * 按配置获取客户端的对象
-     * @param config
-     * @return
-     */
-    public HttpClient getClient(ConnectConfig config);
-
-    /**
-     * 按指定的路径加载配置
-     * @param filePath
-     * @return
-     */
-    public ConnectConfig getConfig(String filePath);
 
 
 

@@ -1,6 +1,8 @@
 package com.fruit.crawler.net;
 
-import sun.net.www.http.HttpClient;
+import org.apache.http.client.HttpClient;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
 
 import java.net.URL;
 /**
@@ -10,22 +12,21 @@ import java.net.URL;
 public class NetImpl implements  INet
 {
 
-    @Override
     public String getHtmlStr(URL url, NetConnectType type)
     {
 
         return null;
     }
 
-    @Override
-    public HttpClient getClient(ConnectConfig config)
+    private HttpClient getClient(ConnectConfig config)
     {
 
-        return null;
+        CloseableHttpClient client = HttpClients.createDefault();
+
+        return client;
     }
 
-    @Override
-    public ConnectConfig getConfig(String filePath)
+    private ConnectConfig getConfig(String filePath)
     {
 
         return null;
