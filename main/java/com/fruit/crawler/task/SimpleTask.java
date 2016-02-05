@@ -15,17 +15,25 @@ import java.net.URL;
  */
 public class SimpleTask
 {
-    public void doTask(URL url)
+    public void doTask(String urlStr)
     {
-        //连接网络获取内容
-        INet net = new NetImpl();
-        String htmlStr = net.getHtmlStr(url, NetConnectType.get);
-        //解析内容
-        IPaser parser = new PaserImpl();
-        String retVal = parser.getContent("", htmlStr);
-        //将得到的内容序列化
-        ISerialize serialize = new SerializeImpl();
-        serialize.serialize(retVal);
+        try
+        {
+            URL url = new URL(urlStr);
+            //连接网络获取内容
+            INet net = new NetImpl();
+            String htmlStr = net.getHtmlStr(url, NetConnectType.get);
+            //解析内容
+            IPaser parser = new PaserImpl();
+            String retVal = parser.getContent("", htmlStr);
+            //将得到的内容序列化
+            ISerialize serialize = new SerializeImpl();
+            serialize.serialize(retVal);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 
 }
